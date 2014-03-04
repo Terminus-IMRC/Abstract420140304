@@ -32,14 +32,18 @@ L=\frac{1}{5}\sum_{i=1}^{25}i=\frac{5\times(25+1)}{2}=65
 \end{itemize}
 \end{itemize}
 
-\foilhead{並列化}
+\foilhead{並列化$(1)$}
 \begin{itemize}
 \item 並列方式 $\cdots$ マスタ$\cdot$ワーカー型並列
 \begin{itemize}
 \item 1コアをマスタ(司令塔)とする
 \item その他のコアをワーカーとし、マスタの指示に従わせる
 \end{itemize}
-\item 実際のプログラムでは、マスタが$N$番目$(0 \ge N \ge N)$のマスまで総当たりをし、ワーカーがそれを受け取り、$N+1$番目のマスまで総当たり
+\end{itemize}
+
+\foilhead{並列化$(2)$}
+\begin{itemize}
+\item マスタが$N$番目$(0 \ge N \ge N)$のマスまで総当たりし、ワーカーがそれを受け取り、$N+1$番目のマスまで総当たり
 \begin{itemize}
 \item $N$の値が小さいとワーカーの粒度(仕事のバラつき)が大きくなり、ワーカーの計算時間がバラつく
 \item $N$の値が大きいと粒度が小さくなりワーカーの計算時間が均等になるが、通信のコストが増大
