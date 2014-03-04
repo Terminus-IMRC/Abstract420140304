@@ -64,20 +64,36 @@ L=\frac{1}{5}\sum_{i=1}^{25}i=\frac{5\times(25+1)}{2}=65
 
 \foilhead{実験結果}
 \begin{itemize}
-\item 実行時間の制限より、$N$を3から6とした
+\item 実行時間の制限より、$N$を3から8とした
 \newpage
 \begin{figure}[htb]
 \centering
-\includegraphics[height=0.65\textheight]{image3}
+\includegraphics[height=0.8\textheight]{image3}
 \caption{各$N$における全体実行時間}
 \end{figure}
 \item 実行時間は$N=6$で最も短く、$N=3, \ 8$で長い
 \end{itemize}
 
 \foilhead{考察(1)$\cdots$$N=3$}
+\begin{figure}[htb]
+\centering
+\includegraphics[height=0.8\textheight]{image4}
+\caption{各ワーカーの主要処理実行時間}
+\end{figure}
 \begin{itemize}
-\item 各ワーカーの主要処理時間に大きなバラつきがある
+\item 各ワーカーの主要処理時間に大きなバラつきが見られる
 \end{itemize}
+
+\foilhead{考察(2)$\cdots$$N=8$}
+\begin{figure}[htb]
+\centering
+\includegraphics[height=0.8\textheight]{image5}
+\caption{各ワーカーの総通信時間}
+\end{figure}
+\begin{itemize}
+\item 総通信時間が約1時間と、長い
+\end{itemize}
+
 
 
 \end{document}
