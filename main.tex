@@ -11,7 +11,7 @@
 \item 定義
 \begin{itemize}
 \item 5 $\times$ 5 のマス目
-\item 1 $\sim$ 25 の数を1つずつ入れる
+\item 1 $\sim$ 25 の数が1つずつ入る
 \item 縦の5列 $\cdot$ 横の5列 $\cdot$ 斜めの2列の合計が全て等しい(式\ref{eqn:l})
 \begin{boldequation} \label{eqn:l}
 L=\frac{1}{5}\sum_{i=1}^{25}i=\frac{5\times(25+1)}{2}=65
@@ -43,7 +43,7 @@ L=\frac{1}{5}\sum_{i=1}^{25}i=\frac{5\times(25+1)}{2}=65
 
 \foilhead{並列化$(2)$}
 \begin{itemize}
-\item マスタが$N$番目$(0 \ge N \ge N)$のマスまで総当たりし、ワーカーがそれを受け取り、$N+1$番目のマスまで総当たり
+\item マスタが$N$番目$(0 \ge N \ge 14)$のマスまで総当たりし、ワーカーがそれを受け取り、$N+1$番目のマスまで総当たり
 \begin{itemize}
 \item $N$の値が小さいとワーカーの粒度(仕事のバラつき)が大きくなり、ワーカーの計算時間がバラつく
 \item $N$の値が大きいと粒度が小さくなりワーカーの計算時間が均等になるが、通信のコストが増大
