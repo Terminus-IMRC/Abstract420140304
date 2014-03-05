@@ -1,5 +1,6 @@
 \documentclass[a4paper,landscape,25pt]{foils}
 \usepackage{graphicx}
+\usepackage[export]{adjustbox}
 
 \title{5次魔方陣全解出力プログラムの \\ 並列化と性能評価}
 \author{4年次 \\ 杉崎 行優}
@@ -54,7 +55,7 @@ L=\frac{1}{5}\sum_{i=1}^{25}i=\frac{5\times(25+1)}{2}=65
 
 \foilhead{並列化$(2)$}
 \begin{itemize}
-\item マスタが$N$番目$(0 \ge N \ge 14)$のマスまで総当たりし、ワーカーがそれを受け取り、$N+1$番目のマスまで総当たり
+\item マスタが$N$番目$(0 \ge N \ge 14)$のマスまで総当たり \\ ワーカーがそれを受け取り、$N+1$番目のマスから総当たり
 \begin{itemize}
 \item $N$の値が小さいとワーカーの粒度(仕事のバラつき)が大きくなり、ワーカーの計算時間がバラつく
 \item $N$の値が大きいと粒度が小さくなりワーカーの計算時間が均等になるが、通信のコストが増大
@@ -73,7 +74,7 @@ L=\frac{1}{5}\sum_{i=1}^{25}i=\frac{5\times(25+1)}{2}=65
 \newpage
 \begin{figure}[htb]
 \centering
-\includegraphics[height=0.7\textheight]{image3}
+\includegraphics[height=0.7\textheight,frame]{image3}
 \caption{各$N$における全体実行時間}
 \end{figure}
 \item 実行時間は$N=3, \ 8$で長く、$N=6$で最短
@@ -82,7 +83,7 @@ L=\frac{1}{5}\sum_{i=1}^{25}i=\frac{5\times(25+1)}{2}=65
 \foilhead{考察(1)$\cdots$$N=3$}
 \begin{figure}[htb]
 \centering
-\includegraphics[height=0.7\textheight]{image4}
+\includegraphics[height=0.7\textheight,frame]{image4}
 \caption{各ワーカーの主要処理実行時間}
 \end{figure}
 \begin{itemize}
@@ -92,7 +93,7 @@ L=\frac{1}{5}\sum_{i=1}^{25}i=\frac{5\times(25+1)}{2}=65
 \foilhead{考察(2)$\cdots$$N=8$}
 \begin{figure}[htb]
 \centering
-\includegraphics[height=0.7\textheight]{image5}
+\includegraphics[height=0.7\textheight,frame]{image5}
 \caption{各ワーカーの総通信時間}
 \end{figure}
 \begin{itemize}
@@ -105,15 +106,19 @@ L=\frac{1}{5}\sum_{i=1}^{25}i=\frac{5\times(25+1)}{2}=65
 \item 子曰「君子中庸。小人反中庸。...中庸其至矣乎。...」
 \end{itemize}
 
-\foilhead[-.5in]{今後の計画}
+\foilhead[-.75in]{限界と今後 $-Starry \  heavens-$}
 \begin{itemize}
 \item 6次魔方陣への拡張
 \begin{itemize}
-\item 現在のプログラムを6次としてT2K-Tsukubaで実行した場合150兆年かかる
-\item アルゴリズムやプログラムの大幅な改良がない限り、6次魔方陣の求解は不可能
+\item 今回のアルゴリズム$\cdot$プログラムをそのまま6次に拡張した場合、実行に150兆年かかる見込み
+(計算量が約$2\times10^{14}$倍)
+\item 現在のアルゴリズム$\cdot$プログラムを大幅に改良しない限り \\ 現実的に不可能
 \end{itemize}
-\item (この先、魔方陣をテーマとし、かつ計算科学をやるというのは困難かもしれない$\cdots$)
-\item (ここ数ヶ月の進捗がありません)
+\item 筑波大学の新しいスーパーコンピュータCOMAへの適用(予定)
+\begin{itemize}
+\item CPU$\cdot$ネットワーク等の環境の違いにより$N$の最適値が変化する可能性
+\item スケーラビリティの向上
+\end{itemize}
 \end{itemize}
 
 \foilhead{End of the sky}
